@@ -1,0 +1,9 @@
+
+# node modules
+node_modules
+
+# assets, e.g. bootstrap, angular
+public/assets
+
+# typescript
+typings

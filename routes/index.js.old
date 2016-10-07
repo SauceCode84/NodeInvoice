@@ -1,0 +1,64 @@
+
+var models  = require('../models');
+var express = require('express');
+var router  = express.Router();
+var jwt = require('jsonwebtoken');
+var config = require('../config');
+var superSecret = config.secret;
+
+router.post('/authenticate', function(req, res) {
+    console.log('Finding user: ' + req.body.username);
+
+    models.User.findOne({
+        where: { username: req.body.username }
+    })
+    .then(function(user) {
+        console.log('Found user: ' + user);
+    });
+});
+
+router.use(function(req, res, next) {
+    var token = req.body.token || req.query.token || req.headers['x-access-token'];
+
+    if (token) {
+        jwt.verify(token, superSecret, function(err, decoded) {
+            if (err) {
+                return res.status(403).send({
+                    success: false,
+                    message: 'Failed to authenticate token'
+                });
+            }
+
+            req.decoded = decoded;
+            next();
+        });
+    } else {
+        return res.status(403).send({
+            success: false,
+            message: 'No token provided'
+        });
+    }
+});
+
+router.get('/users', function(req, res) {
+    models.User.findAll({
+        include: [ models.Task ]
+    })
+    .then(function(users) {
+        res.send(users);
+    });
+});
+
+router.post('/users', function(req, res) {
+    var password = req.body.password;
+
+    models.User.create({
+        username: req.body.username,
+        password: password
+    })
+    .then(function(user) {
+        res.status(200).json({ id: user.id });
+    });
+});
+
+module.exports = router;

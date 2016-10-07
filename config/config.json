@@ -1,0 +1,9 @@
+{
+    "dev": {
+        "username": "aquas",
+        "password": "70551961",
+        "database": "test",
+        "host": "localhost",
+        "dialect": "mysql"
+    }
+}
