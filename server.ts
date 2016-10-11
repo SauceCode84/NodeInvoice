@@ -3,7 +3,7 @@ import * as http from "http";
 
 var app = require('./app');
 
-var port = normalizePort(process.env.PORT || 8080);
+var port = normalizePort(process.env.PORT || 9090);
 app.set('port', port);
 
 // create http server
@@ -40,6 +40,7 @@ function onListening() {
 
 function onError(error) {
     if (error.syscall !== "listen") {
+        console.error(error);
         throw error;
     }
     

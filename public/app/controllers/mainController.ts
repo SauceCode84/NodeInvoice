@@ -26,7 +26,11 @@ class MainController {
     }
 
     private onRouteChangeStart = () => {
+        console.log('onRouteChangeStart');
+
         this.$scope.loggedIn = this.Auth.isLoggedIn();
+
+        console.log('$scope.loggedIn: ' + this.$scope.loggedIn);
 
         this.Auth
             .getUser()

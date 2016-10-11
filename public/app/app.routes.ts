@@ -4,12 +4,12 @@ angular
     .config(($routeProvider: ng.route.IRouteProvider, $locationProvider: ng.ILocationProvider) => {
         $routeProvider
             .when('/', {
-                template: 'app/views/pages/home.html'
+                templateUrl: 'app/views/pages/home.html'
             })
             .when('/login', {
-                template: 'app/views/pages/login.html',
+                templateUrl: 'app/views/pages/login.html',
                 controller: 'mainController'
             });
         
-        $locationProvider.html5Mode(false);
+        $locationProvider.html5Mode(true);
     });

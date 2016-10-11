@@ -53,7 +53,7 @@ class AuthService implements IAuthService {
          var token = this.AuthToken.getToken();
 
          if (token) {
-             return this.$http.get<IUserModel>('/api/me');
+             return this.$http.get<IUserModel>('/api/me', { cache: true });
          }
          else {
              return this.$q.reject({ message: 'No token present' });
