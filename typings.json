@@ -3,9 +3,9 @@
     "angular": "registry:dt/angular#1.5.0+20160922195358",
     "body-parser": "registry:dt/body-parser#0.0.0+20160619023215",
     "express": "registry:dt/express#4.0.0+20160708185218",
-    "express-serve-static-core": "registry:dt/express-serve-static-core#4.0.0+20160928124223",
+    "express-serve-static-core": "registry:dt/express-serve-static-core#4.0.0+20161008174359",
     "morgan": "registry:dt/morgan#1.7.0+20160524142355",
-    "node": "registry:dt/node#6.0.0+20160928143418",
+    "node": "registry:dt/node#6.0.0+20161010101523",
     "sequelize": "registry:dt/sequelize#3.4.1+20160929080558",
     "serve-static": "registry:dt/serve-static#0.0.0+20160606155157"
   }
